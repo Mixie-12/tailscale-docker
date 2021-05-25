@@ -8,5 +8,5 @@ sysctl -p /etc/sysctl.conf
 
 # Wait 5s for the daemon to start and then run tailscale up to configure
 echo "Starting Tailscale client in 5 seconds with routes ${ADVERTISE_ROUTES}"
-/bin/sh -c "sleep 5; /usr/bin/tailscale up --advertise-routes=${ADVERTISE_ROUTES}" &
+/bin/sh -c "sleep 5; /usr/bin/tailscale up --accept-routes --advertise-routes=${ADVERTISE_ROUTES}" &
 exec /usr/sbin/tailscaled --state=/tailscale/tailscaled.state
